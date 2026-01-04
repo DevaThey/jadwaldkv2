@@ -284,46 +284,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Feedback Form Styles */
-        .feedback-form label {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: #1e293b;
-        }
-
-        .feedback-form textarea {
-            width: 100%;
-            height: 120px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 12px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            resize: none;
-            margin-bottom: 15px;
-        }
-
-        .feedback-form input[type="file"] {
-            margin-bottom: 20px;
-            font-size: 12px;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .btn-submit {
-            background: #6366f1;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 12px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: 600;
-            transition: 0.3s;
-            font-family: 'Poppins', sans-serif;
-        }
-
         .btn-back {
             background: #475569;
             color: white;
@@ -460,11 +420,12 @@
         </div>
         
         <div class="footer-btns">
-            <button class="secondary-btn" onclick="toggleModal('logModal', true)">✨ Log Update</button>
             <button class="download-btn" onclick="downloadExcel()">⬇️ Download Excel</button>
-            <button class="secondary-btn" onclick="toggleModal('feedbackModal', true)">💬 Feedback</button>
+            <button class="secondary-btn" onclick="toggleModal('logModal', true)">✨ Log Update</button>
         </div>
     </div>
+
+
 
     <div id="logModal" class="modal-overlay">
         <div class="modal-content">
@@ -492,31 +453,6 @@
         </div>
     </div>
 
-    <div id="feedbackModal" class="modal-overlay">
-        <div class="modal-content">
-            <div id="feedbackFormContent">
-                <h2 style="margin-bottom: 10px; font-size: 18px;">Kirim Masukan</h2>
-                <p style="font-size: 12px; color: #64748b; margin-bottom: 20px;">Jika ada saran atau keluhan silahkan tulis disini</p>
-                <form name="feedback" method="POST" data-netlify="true" enctype="multipart/form-data" class="feedback-form" onsubmit="handleSubmit(event)">
-                    <input type="hidden" name="form-name" value="feedback">
-                    <label>Saran Kamu:</label>
-                    <textarea name="message" required placeholder="Tulis pesanmu..."></textarea>
-                    
-                    <label>Lampiran (Foto/Video):</label>
-                    <input type="file" name="attachment" accept="image/*,video/*">
-                    
-                    <button type="submit" class="btn-submit">Kirim Feedback</button>
-                </form>
-            </div>
-            <div id="successMessage" style="display: none; text-align: center; padding: 20px 0;">
-                <div style="font-size: 40px; margin-bottom: 10px;">🎉</div>
-                <h3 style="margin-bottom: 10px;">Terkirim!</h3>
-                <p style="font-size: 14px; color: #64748b;">Terima kasih atas feedback nya untuk pengembangan sistem ini.</p>
-            </div>
-            <button class="btn-back" onclick="toggleModal('feedbackModal', false)">Kembali</button>
-        </div>
-    </div>
-
     <div class="watermark">By Deva</div>
 
     <script>
@@ -529,83 +465,59 @@
             'SABTU': [['1-8', '07.05 - 12.40', '-', 'Kokurikuler Mandiri', '-', '-']]
         };
 
-        const guruData = [['040', 'Ainul Mubsiroh, S.Pd.I, M.Pd.', 'Pendidikan Agama Islam', ''],['046', 'Masri Kagatanaribe, M.Pd.', 'Pendidikan Agama Kristen', ''],['096', 'Aprianus Anjelius Foutnine, S.Fil', 'Pendidikan Agama Katolik', ''],['095', 'Adventina Puspita', 'Pendidikan Agama Konghochu', ''],['063', 'Darsusanto, S.Ag.', 'Pendidikan Agama Budha', ''],['092', 'I Dewa Ayu Setiyawati, S.Pd.', 'Pendidikan Agama Hindu & Bahasa Bali', '6282146421893'],['067', 'Nengah Dwi Rahayu, SE.', 'Pendidikan Pancasila', '6281220692219'],['081', 'Tjok Istri Agung Rai Sintha Devi, S.Pd.', 'Sejarah Indonesia', '6289534767483'],['080', 'Ida Bagus Angga Baskara, S.Pd.', 'Bahasa Indonesia', '6287860193270'],['007', 'A.A Gede Putra Dwi Artajaya, S.Si., M.Kom.', 'Matematika', '6282247033044'],['070', 'Ni Putu Tirta Purnama Dewi, S.Pd', 'Bahasa Inggris', ''],['076', 'Triono Doni Wijaya, S.Kom.', 'Desain Komunikasi Visual', '6287863112233'],['018', 'Putu Yenny Suryantari, S.Pd.', 'Projek Kreatif dan Kewirausahaan', '6281353285810'],['062', 'Bella Cintya Devi, S.Kom.', 'Animasi-FF', '6281999022333'],['013', 'I Wayan Agus Wiranata, S.Pd.', 'PJOK (1 JP + 1 JP P5)', '']];
+        const guruData = [['040', 'Ainul Mubsiroh, S.Pd.I, M.Pd.', 'Pendidikan Agama Islam', ''],['046', 'Masri Kagatanaribe, M.Pd.', 'Pendidikan Agama Kristen', ''],['096', 'Aprianus Anjelius Foutnine, S.Fil', 'Pendidikan Agama Katolik', ''],['095', 'Adventina Puspita', 'Pendidikan Agama Konghochu', ''],['063', 'Darsusanto, S.Ag.', 'Pendidikan Agama Budha', ''],['092', 'I Dewa Ayu Setiyawati, S.Pd.', 'Pendidikan Agama Hindu & Bahasa Bali', ''],['067', 'Nengah Dwi Rahayu, SE.', 'Pendidikan Pancasila', '6281220692219'],['081', 'Tjok Istri Agung Rai Sintha Devi, S.Pd.', 'Sejarah Indonesia', '6289534767483'],['080', 'Ida Bagus Angga Baskara, S.Pd.', 'Bahasa Indonesia', ''],['007', 'A.A Gede Putra Dwi Artajaya, S.Si., M.Kom.', 'Matematika', '6282247033044'],['070', 'Ni Putu Tirta Purnama Dewi, S.Pd', 'Bahasa Inggris', ''],['076', 'Triono Doni Wijaya, S.Kom.', 'Desain Komunikasi Visual', '6287863112233'],['018', 'Putu Yenny Suryantari, S.Pd.', 'Projek Kreatif dan Kewirausahaan', '6281353285810'],['062', 'Bella Cintya Devi, S.Kom.', 'Animasi-FF', '6281999022333'],['013', 'I Wayan Agus Wiranata, S.Pd.', 'PJOK (1 JP + 1 JP P5)', '']];
 
         const guruPenggantiData = [['079', 'Ni Putu Linda Agustini, S.Pd.', 'Matematika', 'Menggantikan Bp. A.A Gede Putra'],['088', 'Ni Ketut Supartini, SS.', 'Bahasa Inggris', 'Menggantikan Ibu Ni Putu Tirta'],['081', 'Tjok Istri Agung Rai Sintha Devi, S.Pd.', 'Pendidikan Pancasila', 'Menggantikan Ibu Nengah Dwi Rahayu']];
+const piketPagi = [['Senin', 'Ida Ayu Dewi Paramita, S.Pd', '62895375837712'],['Selasa', 'I Putu Dedy Karsana, S.Pd', '6281933019479'],['Rabu', 'Tjok Istri Agung Rai Sintha Devi, S.Pd', '6289534767483'],['Kamis', 'Ida Ayu Indra Pratiwi, S.Sn', '6281239588346'],['Jumat', 'Dra. Ni Made Ayu Adnyani', '6281238437877']];
 
-        const piketPagi = [['Senin', 'Ida Ayu Dewi Paramita, S.Pd', '62895375837712'],['Selasa', 'I Putu Dedy Karsana, S.Pd', '6281933019479'],['Rabu', 'Tjok Istri Agung Rai Sintha Devi, S.Pd', '6289534767483'],['Kamis', 'Ida Ayu Indra Pratiwi, S.Sn', '6281239588346'],['Jumat', 'Dra. Ni Made Ayu Adnyani', '6281238437877']];
+    const piketSore = [['Senin', 'Ni Putu Linda Agustini, S.Pd', '6285738235218'],['Selasa', 'I Kadek Yogi Mayudana, S.Pd., M.Pd', '628563769773'],['Rabu', 'Ni Kadek Chandra Putri Irani, S.Pd., M.Pd', '6285953912558'],['Kamis', 'Ni Wayan Lina Valentine, S.Pd', '628970147321'],['Jumat', 'Kadek Arie Wira Kusuma, S.Kom', '6282247033484']];
 
-        const piketSore = [['Senin', 'Ni Putu Linda Agustini, S.Pd', '6285738235218'],['Selasa', 'I Kadek Yogi Mayudana, S.Pd., M.Pd', '628563769773'],['Rabu', 'Ni Kadek Chandra Putri Irani, S.Pd., M.Pd', '6285953912558'],['Kamis', 'Ni Wayan Lina Valentine, S.Pd', '628970147321'],['Jumat', 'Kadek Arie Wira Kusuma, S.Kom', '6282247033484']];
+    function renderAll() {
+        const renderRows = (data, target) => {
+            document.getElementById(target).innerHTML = data.map(row => {
+                return `<tr>${row.map((cell, idx) => {
+                    if(target.includes('piket') && idx === 2) return `<td><a href="https://wa.me/${cell}" target="_blank" class="btn-chat">Chat Guru</a></td>`;
+                    return `<td>${cell}</td>`;
+                }).join('')}</tr>`;
+            }).join('');
+        };
 
-        function renderAll() {
-            const renderRows = (data, target) => {
-                document.getElementById(target).innerHTML = data.map(row => {
-                    return `<tr>${row.map((cell, idx) => {
-                        if(target.includes('piket') && idx === 2) return `<td><a href="https://wa.me/${cell}" target="_blank" class="btn-chat">Chat Guru</a></td>`;
-                        return `<td>${cell}</td>`;
-                    }).join('')}</tr>`;
-                }).join('');
-            };
-
-            const jTable = document.getElementById('jadwalBody');
-            let jHtml = '';
-            for (const [day, sch] of Object.entries(jadwalData)) {
-                jHtml += `<tr><td colspan="6" class="day-header">${day}</td></tr>`;
-                sch.forEach(r => {
-                    const isB = r[3] === 'ISTIRAHAT';
-                    jHtml += `<tr class="${isB?'break-row':''}">` + r.map((c, i) => `<td>${(c==='Kosong'||(c==='-'&&i>0))?`<span class="empty-cell">${c}</span>`:c}</td>`).join('') + `</tr>`;
-                });
-            }
-            jTable.innerHTML = jHtml;
-
-            document.getElementById('guruTableBody').innerHTML = guruData.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]?`<a href="https://wa.me/${r[3]}" target="_blank" class="btn-chat">Chat</a>`:'-'}</td></tr>`).join('');
-            renderRows(guruPenggantiData, 'guruPenggantiBody');
-            renderRows(piketPagi, 'piketPagiBody');
-            renderRows(piketSore, 'piketSoreBody');
+        const jTable = document.getElementById('jadwalBody');
+        let jHtml = '';
+        for (const [day, sch] of Object.entries(jadwalData)) {
+            jHtml += `<tr><td colspan="6" class="day-header">${day}</td></tr>`;
+            sch.forEach(r => {
+                const isB = r[3] === 'ISTIRAHAT';
+                jHtml += `<tr class="${isB?'break-row':''}">` + r.map((c, i) => `<td>${(c==='Kosong'||(c==='-'&&i>0))?`<span class="empty-cell">${c}</span>`:c}</td>`).join('') + `</tr>`;
+            });
         }
+        jTable.innerHTML = jHtml;
 
-        function showTab(t, e) {
-            document.querySelectorAll('.tab-content, .tab').forEach(x => x.classList.remove('active'));
-            document.getElementById(t).classList.add('active');
-            e.currentTarget.classList.add('active');
+        document.getElementById('guruTableBody').innerHTML = guruData.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]?`<a href="https://wa.me/${r[3]}" target="_blank" class="btn-chat">Chat</a>`:'-'}</td></tr>`).join('');
+        renderRows(guruPenggantiData, 'guruPenggantiBody');
+        renderRows(piketPagi, 'piketPagiBody');
+        renderRows(piketSore, 'piketSoreBody');
+    }
+
+    function showTab(t, e) {
+        document.querySelectorAll('.tab-content, .tab').forEach(x => x.classList.remove('active'));
+        document.getElementById(t).classList.add('active');
+        e.currentTarget.classList.add('active');
+    }
+
+    function toggleModal(id, show) {
+        document.getElementById(id).style.display = show ? 'flex' : 'none';
+    }
+
+    function downloadExcel() {
+        const wb = XLSX.utils.book_new();
+        const data = [['JADWAL KELAS XI DKV 2'], []];
+        for (const [day, sch] of Object.entries(jadwalData)) {
+            data.push([day], ['No', 'Waktu', 'Kode', 'Mapel', 'Kode', 'Guru'], ...sch, []);
         }
+        XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(data), 'Jadwal');
+        XLSX.writeFile(wb, 'Jadwal_DKV2.xlsx');
+    }
 
-        function toggleModal(id, show) {
-            document.getElementById(id).style.display = show ? 'flex' : 'none';
-            if(id === 'feedbackModal' && !show) {
-                document.getElementById('feedbackFormContent').style.display = 'block';
-                document.getElementById('successMessage').style.display = 'none';
-            }
-        }
-
-        function handleSubmit(e) {
-            e.preventDefault();
-            const form = e.target;
-            const formData = new FormData(form);
-
-            fetch("/", {
-                method: "POST",
-                body: formData,
-            })
-            .then(() => {
-                document.getElementById('feedbackFormContent').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-                form.reset();
-            })
-            .catch((error) => alert("Gagal mengirim feedback: " + error));
-        }
-
-        function downloadExcel() {
-            const wb = XLSX.utils.book_new();
-            const data = [['JADWAL KELAS XI DKV 2'], []];
-            for (const [day, sch] of Object.entries(jadwalData)) {
-                data.push([day], ['No', 'Waktu', 'Kode', 'Mapel', 'Kode', 'Guru'], ...sch, []);
-            }
-            XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(data), 'Jadwal');
-            XLSX.writeFile(wb, 'Jadwal_DKV2.xlsx');
-        }
-
-        renderAll();
-    </script>
-</body>
-</html>
+    renderAll();
+</script>
