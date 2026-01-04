@@ -255,6 +255,8 @@
             transition: all 0.3s;
             font-family: 'Poppins', sans-serif;
             box-shadow: 0 4px 10px rgba(71, 85, 105, 0.2);
+            text-decoration: none;
+            display: inline-block;
         }
         
         .secondary-btn:hover {
@@ -387,7 +389,7 @@
             <div class="table-responsive">
                 <table>
                     <thead>
-                        <tr><th>Kode</th><th>Nama Guru Pengganti</th><th>Mata Pelajaran</th><th>Keterangan</th></tr>
+                        <tr><th>Kode</th><th>Nama Guru Pengganti</th><th>Mata Pelajaran</th><th>Keterangan</th><th>Aksi</th></tr>
                     </thead>
                     <tbody id="guruPenggantiBody"></tbody>
                 </table>
@@ -420,8 +422,9 @@
         </div>
         
         <div class="footer-btns">
-            <button class="download-btn" onclick="downloadExcel()">⬇️ Download Excel</button>
             <button class="secondary-btn" onclick="toggleModal('logModal', true)">✨ Log Update</button>
+            <button class="download-btn" onclick="downloadExcel()">⬇️ Download Excel</button>
+            <a href="https://bit.ly/4q8DHIq" target="_blank" class="secondary-btn">💬 Feedback</a>
         </div>
     </div>
 
@@ -465,12 +468,22 @@
             'SABTU': [['1-8', '07.05 - 12.40', '-', 'Kokurikuler Mandiri', '-', '-']]
         };
 
-        const guruData = [['040', 'Ainul Mubsiroh, S.Pd.I, M.Pd.', 'Pendidikan Agama Islam', ''],['046', 'Masri Kagatanaribe, M.Pd.', 'Pendidikan Agama Kristen', ''],['096', 'Aprianus Anjelius Foutnine, S.Fil', 'Pendidikan Agama Katolik', ''],['095', 'Adventina Puspita', 'Pendidikan Agama Konghochu', ''],['063', 'Darsusanto, S.Ag.', 'Pendidikan Agama Budha', ''],['092', 'I Dewa Ayu Setiyawati, S.Pd.', 'Pendidikan Agama Hindu & Bahasa Bali', ''],['067', 'Nengah Dwi Rahayu, SE.', 'Pendidikan Pancasila', '6281220692219'],['081', 'Tjok Istri Agung Rai Sintha Devi, S.Pd.', 'Sejarah Indonesia', '6289534767483'],['080', 'Ida Bagus Angga Baskara, S.Pd.', 'Bahasa Indonesia', ''],['007', 'A.A Gede Putra Dwi Artajaya, S.Si., M.Kom.', 'Matematika', '6282247033044'],['070', 'Ni Putu Tirta Purnama Dewi, S.Pd', 'Bahasa Inggris', ''],['076', 'Triono Doni Wijaya, S.Kom.', 'Desain Komunikasi Visual', '6287863112233'],['018', 'Putu Yenny Suryantari, S.Pd.', 'Projek Kreatif dan Kewirausahaan', '6281353285810'],['062', 'Bella Cintya Devi, S.Kom.', 'Animasi-FF', '6281999022333'],['013', 'I Wayan Agus Wiranata, S.Pd.', 'PJOK (1 JP + 1 JP P5)', '']];
+        const guruData = [['040', 'Ainul Mubsiroh, S.Pd.I, M.Pd.', 'Pendidikan Agama Islam', ''],['046', 'Masri Kagatanaribe, M.Pd.', 'Pendidikan Agama Kristen', ''],['096', 'Aprianus Anjelius Foutnine, S.Fil', 'Pendidikan Agama Katolik', ''],['095', 'Adventina Puspita', 'Pendidikan Agama Konghochu', ''],['063', 'Darsusanto, S.Ag.', 'Pendidikan Agama Budha', ''],['092', 'I Dewa Ayu Setiyawati, S.Pd.', 'Pendidikan Agama Hindu & Bahasa Bali', '6282146421893'],['067', 'Nengah Dwi Rahayu, SE.', 'Pendidikan Pancasila', '6281220692219'],['081', 'Tjok Istri Agung Rai Sintha Devi, S.Pd.', 'Sejarah Indonesia', '6289534767483'],['080', 'Ida Bagus Angga Baskara, S.Pd.', 'Bahasa Indonesia', '6287860193270'],['007', 'A.A Gede Putra Dwi Artajaya, S.Si., M.Kom.', 'Matematika', '6282247033044'],['070', 'Ni Putu Tirta Purnama Dewi, S.Pd', 'Bahasa Inggris', ''],['076', 'Triono Doni Wijaya, S.Kom.', 'Desain Komunikasi Visual', '6287863112233'],['018', 'Putu Yenny Suryantari, S.Pd.', 'Projek Kreatif dan Kewirausahaan', '6281353285810'],['062', 'Bella Cintya Devi, S.Kom.', 'Animasi-FF', '6281999022333'],['013', 'I Wayan Agus Wiranata, S.Pd.', 'PJOK (1 JP + 1 JP P5)', '']];
 
         const guruPenggantiData = [['079', 'Ni Putu Linda Agustini, S.Pd.', 'Matematika', 'Menggantikan Bp. A.A Gede Putra'],['088', 'Ni Ketut Supartini, SS.', 'Bahasa Inggris', 'Menggantikan Ibu Ni Putu Tirta'],['081', 'Tjok Istri Agung Rai Sintha Devi, S.Pd.', 'Pendidikan Pancasila', 'Menggantikan Ibu Nengah Dwi Rahayu']];
 const piketPagi = [['Senin', 'Ida Ayu Dewi Paramita, S.Pd', '62895375837712'],['Selasa', 'I Putu Dedy Karsana, S.Pd', '6281933019479'],['Rabu', 'Tjok Istri Agung Rai Sintha Devi, S.Pd', '6289534767483'],['Kamis', 'Ida Ayu Indra Pratiwi, S.Sn', '6281239588346'],['Jumat', 'Dra. Ni Made Ayu Adnyani', '6281238437877']];
 
     const piketSore = [['Senin', 'Ni Putu Linda Agustini, S.Pd', '6285738235218'],['Selasa', 'I Kadek Yogi Mayudana, S.Pd., M.Pd', '628563769773'],['Rabu', 'Ni Kadek Chandra Putri Irani, S.Pd., M.Pd', '6285953912558'],['Kamis', 'Ni Wayan Lina Valentine, S.Pd', '628970147321'],['Jumat', 'Kadek Arie Wira Kusuma, S.Kom', '6282247033484']];
+
+    function getPhoneByName(name) {
+        const sourceGuru = guruData.find(g => g[1] === name);
+        if(sourceGuru && sourceGuru[3]) return sourceGuru[3];
+        const sourcePagi = piketPagi.find(p => p[1] === name);
+        if(sourcePagi && sourcePagi[2]) return sourcePagi[2];
+        const sourceSore = piketSore.find(p => p[1] === name);
+        if(sourceSore && sourceSore[2]) return sourceSore[2];
+        return null;
+    }
 
     function renderAll() {
         const renderRows = (data, target) => {
@@ -494,7 +507,12 @@ const piketPagi = [['Senin', 'Ida Ayu Dewi Paramita, S.Pd', '62895375837712'],['
         jTable.innerHTML = jHtml;
 
         document.getElementById('guruTableBody').innerHTML = guruData.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]?`<a href="https://wa.me/${r[3]}" target="_blank" class="btn-chat">Chat</a>`:'-'}</td></tr>`).join('');
-        renderRows(guruPenggantiData, 'guruPenggantiBody');
+        
+        document.getElementById('guruPenggantiBody').innerHTML = guruPenggantiData.map(r => {
+            const phone = getPhoneByName(r[1]);
+            return `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td>${phone?`<a href="https://wa.me/${phone}" target="_blank" class="btn-chat">Chat</a>`:'-'}</td></tr>`;
+        }).join('');
+
         renderRows(piketPagi, 'piketPagiBody');
         renderRows(piketSore, 'piketSoreBody');
     }
@@ -521,3 +539,5 @@ const piketPagi = [['Senin', 'Ida Ayu Dewi Paramita, S.Pd', '62895375837712'],['
 
     renderAll();
 </script>
+</body>
+</html>
